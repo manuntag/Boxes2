@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "boxMaker.h"
 
 
         typedef struct {
@@ -28,15 +29,21 @@
             return length * width * height;
             
         }
-        
+
+
         float compareBoxVolumes (box1 x, box1 y) {
             
-            return (x.width * x.length * x.height)/(y.width * y.length * y.height);
+            return boxVolume(x)/boxVolume(y);
             
         }
+
+
         
         int main(int argc, const char * argv[]) {
             @autoreleasepool {
+                
+                
+                boxMaker * newbox = [[boxMaker alloc]initWithName:@"purple" height:30 width:30 length:30];
                 
                 box1 blue;
                 blue.height = 10;
